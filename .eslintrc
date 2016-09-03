@@ -1,0 +1,15 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "array-bracket-spacing": "off",
+    "no-constant-condition": "off",
+    "no-continue": "off",
+    "no-param-reassign": "off",
+    "quote-props": "off"
+  }
+}
