@@ -8,8 +8,12 @@
   "rules": {
     "array-bracket-spacing": "off",
     "no-constant-condition": "off",
+    // TODO: Use bunyan and enable this rule
+    "no-console": "off",
     "no-continue": "off",
     "no-param-reassign": "off",
-    "quote-props": "off"
+    "quote-props": "off",
+    // Fixes deprecation warning
+    "react/require-extension": "off"
   }
 }

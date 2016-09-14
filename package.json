@@ -5,13 +5,18 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon -x babel-node src",
+    "build": "docker build -t kabbi/i-want-a-flat:v$npm_package_version .",
     "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
     "lint": "eslint src"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chance": "^1.0.4",
+    "moment": "^2.14.1",
     "node-fetch": "^1.6.0",
     "node-telegram-bot-api": "^0.23.3",
     "qs": "^6.2.1",

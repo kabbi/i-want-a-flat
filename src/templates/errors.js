@@ -11,5 +11,5 @@ export const NoCommandError = (
 );
 
 export const WrongChatError = (
-  'Sorry, I don\'t currently support public chats. I like privacy'
+  'Sorry, I don\'t currently support group chats. I like privacy'
 );

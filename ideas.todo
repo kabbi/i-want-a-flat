@@ -1,0 +1,6 @@
+General improvements:
+  ☐ add flow
+  ☐ implement redux actions validators with flow
+  ☐ maybe move all the sagas to redux modules
+  ☐ enhance templating system
+  ☐ setup custom gitlab to make docker images and deploy them

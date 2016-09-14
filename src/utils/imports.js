@@ -1,7 +1,7 @@
 import requireDirectory from 'require-directory';
 
-export const importDeepFiles = (module, fileName) => {
-  const modules = requireDirectory(module, {
+export const importDeepFiles = (module, relativePath, fileName) => {
+  const modules = requireDirectory(module, relativePath, {
     visit: m => m.default,
     include: new RegExp(`${fileName}\\.js$`),
     recurse: true,
