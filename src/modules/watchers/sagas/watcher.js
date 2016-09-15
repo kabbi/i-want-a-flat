@@ -1,4 +1,4 @@
-import { call, put, select } from 'redux-saga/effects';
+import { call, cancelled, put, select } from 'redux-saga/effects';
 
 import * as Templates from '../../../templates/watcher';
 
@@ -68,7 +68,7 @@ export default function* (watcherId) {
       }
 
       if (updates.haveAdded || updates.haveRemoved) {
-        yield call([bot, bot.sendMessage], chat.id, Templates.makeUpdate(updates), {
+        yield call([bot, bot.sendMessage], chat.id, Templates.makeUpdate(watcherId, updates), {
           parse_mode: 'Markdown',
           disable_web_page_preview: true,
         });
@@ -93,6 +93,12 @@ export default function* (watcherId) {
       }));
 
       yield call(delay, 6e5 * Math.random() * 5);
+    } finally {
+      if (yield cancelled()) {
+        yield call([bot, bot.sendMessage], chat.id, Templates.makeFinished(watcherId), {
+          parse_mode: 'Markdown',
+        });
+      }
     }
   }
 }

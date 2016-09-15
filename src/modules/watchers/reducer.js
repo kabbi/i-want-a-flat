@@ -37,9 +37,6 @@ const idsReducer = handleActions({
   [actions.startWatcher]: (state, { payload: { id } }) => [
     ...state, id,
   ],
-  [actions.startWatcher]: (state, { payload: { id } }) => (
-    state.filter(watcherId => watcherId !== id)
-  ),
 }, InitialState.ids);
 
 export default combineReducers({

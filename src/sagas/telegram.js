@@ -17,7 +17,7 @@ const makeBotUpdatesChannel = bot => (
 
 function* handleUpdate(bot, sessions, update) {
   const { from, chat } = update;
-  console.log('u', update);
+
   if (!from || chat.type !== 'private') {
     yield call([bot, bot.sendMessage], chat.id, WrongChatError);
     return;

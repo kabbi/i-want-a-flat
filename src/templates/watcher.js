@@ -21,11 +21,11 @@ export const makeUpdateError = watcherId => (
   'we will continue trying, as the problem may go away.'
 );
 
-export const makeUpdate = updates => {
+export const makeUpdate = (watcherId, updates) => {
   const addedKeys = Object.keys(updates.added);
   const removedKeys = Object.keys(updates.removed);
   const lines = [
-    'Hey, I\'ve accidentally found some updates:',
+    `Hey, I've accidentally found some updates for \`${watcherId}\`:`,
     ...(updates.haveAdded ? (
       addedKeys.map((key, index) => (
         `${index + 1}. added, ${updates.added[key].url}`
@@ -48,10 +48,10 @@ export const makeStatus = watchers => (
       `\`${watcher.id}\` - running since ${new Date(watcher.startTime)}, ` +
       `${watcher.stats.successCount} checks successful out of ${watcher.stats.iterationCount}, ` +
       `tracking ${Object.keys(watcher.knownApartments).length} apartments`
-    ))}`
+    )).join('\n')}`
   )
 );
 
-export const WatcherFinished = (
-  'Ok, I\'ve stopped this watcher task for you. Thanks for flying our botnetworks!'
+export const makeFinished = watcherId => (
+  `Ok, I've stopped this watcher task \`${watcherId}\` for you. Thanks for flying our botnetworks!`
 );
